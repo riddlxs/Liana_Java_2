@@ -8,12 +8,11 @@ public static void main(String[] args) { // start the program
     Scanner scanner = new Scanner(System.in); // create the scanner 
     SecureRandom random = new SecureRandom(); // create the secure random for the dessert!
 Lunchbox[] orders = new Lunchbox[10]; // create the array and set it to 10 orders
-int orderCount = 0; // create the variable to count the orders
+int choice = 0; // create the variable to store the users choice for the menu! without it, the program doesnt know where to start!
 String[] desserts = {"Cannoli", "Rocky Road Ice Cream", "Churros", "Soft Baked Peanut Butter Cookies", "Fresh Fudge Brownies"}; // create the array for the desserts
 int choice; // create the variable to store the users choice for the menu
 // now create the menu and use a while loop like professor did in the example 
 
-int choice; // create the variable to store the users choice for the menu! without it, the program doesnt know where to start!
 while (choice !=6) { // gives user 6 choices in the menu
     System.out.println("Welcome to the Lunch Ordering System! Please select an option:");
     System.out.println("1. Place a new order"); 
