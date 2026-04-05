@@ -36,7 +36,7 @@ while (choice !=6) { // gives user 6 choices in the menu
 
             System.out.print("Enter quantity: ");
             int quantity = scanner.nextInt(); 
-            input.nextLine();  // once again because of the int
+            scanner.nextLine();  // once again because of the int
 
             System.out.print("Enter price per item: ");
             double price = scanner.nextDouble(); // read the price per item using double since it can be a decimal
@@ -104,7 +104,7 @@ while (choice !=6) { // gives user 6 choices in the menu
         int costOrderNumber = scanner.nextInt(); // read the user input using the scanner, costOrderNumber is used to store the user input
         scanner.nextLine(); // once again because of the int we need to make a new line
         if (costOrderNumber > 0 && costOrderNumber <= orderCount) { // if the order number is greater than 0 AND = (&&) less than or equal to the order count calculate the total cost of that order
-            double totalCost = orders[costOrderNumber - 1].calculateTotalCost(); // double is used to store the total cost with a decimal, orders is the array, cost order number is the user input and -1 because of zero based array since the first order starts at 0
+            double totalCost = orders[costOrderNumber - 1].calculateCost(); // double is used to store the total cost with a decimal, orders is the array, cost order number is the user input and -1 because of zero based array since the first order starts at 0
             System.out.printf("Total cost for Order #%d: $%.2f%n", costOrderNumber, totalCost); // printf is used to format the placeholders for the total cost to have 2 decimal places
         // #%d format integer for order number and $%.2f format double for the cost since it uses decimal places and %n is for new line for the next menu option and not /n since it is printf!
         } else {
@@ -115,6 +115,7 @@ while (choice !=6) { // gives user 6 choices in the menu
 
         case 6: // sixth case, exit option!
             System.out.println("Thank you for using the Lunch Ordering System! Goodbye!");
+            break; // exit the sixth case
 
             default: // if the user enters a number that is not 1-6 to have a backup default message
             System.out.println("Invalid option. Please try again!");
