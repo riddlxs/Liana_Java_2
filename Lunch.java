@@ -8,11 +8,11 @@ public static void main(String[] args) { // start the program
     Scanner scanner = new Scanner(System.in); // create the scanner 
     SecureRandom random = new SecureRandom(); // create the secure random for the dessert!
 Lunchbox[] orders = new Lunchbox[10]; // create the array and set it to 10 orders
+int orderCount = 0; 
 int choice = 0; // create the variable to store the users choice for the menu! without it, the program doesnt know where to start!
 String[] desserts = {"Cannoli", "Rocky Road Ice Cream", "Churros", "Soft Baked Peanut Butter Cookies", "Fresh Fudge Brownies"}; // create the array for the desserts
-int choice; // create the variable to store the users choice for the menu
-// now create the menu and use a while loop like professor did in the example 
 
+// now create the menu and use a while loop like professor did in the example 
 while (choice !=6) { // gives user 6 choices in the menu
     System.out.println("Welcome to the Lunch Ordering System! Please select an option:");
     System.out.println("1. Place a new order"); 
@@ -75,6 +75,9 @@ while (choice !=6) { // gives user 6 choices in the menu
             System.out.print("How many? ");
             int extra = scanner.nextInt(); // extra is used to add / store the quantity of the order
             scanner.nextLine(); // once again because of the int we need to make a new line
+            int currentQuantity = orders[orderNumber - 1].getQuantity(); // get the current quantity of the order using the get quantity method, orders is the array, order number is the user input and -1 because of zero based array since the first order starts at 0
+            orders[orderNumber - 1].setQuantity(currentQuantity + extra); // set the new quantity of the order using the set quantity method, orders is the array, order number is the user input and -1 because of zero based array since the first order starts at 0, current quantity is the original quantity and extra is the new quantity being added to it
+            System.out.println("Updated order quantity: " + orders[orderNumber - 1].getQuantity()); // -1 since arrays start at 0
         } else {
             System.out.println("Invalid order number. Please try again!");
         }
